@@ -7,9 +7,7 @@ interface CustomButtonProps extends ButtonProps {
 
 const Button: React.FC<CustomButtonProps> = ({ title, variant, ...props }) => {
   return (
-    <ChakraBtn
-      fontSize="sm"
-      fontWeight={600}
+    <ChakraBtn fontSize="sm" fontWeight={600} py={6} px={7}
       color={
         variant === "primary" ? "white" : variant === "secondary" ? "red.400" : "gray.600"
       }

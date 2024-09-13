@@ -1,10 +1,10 @@
-import Layout from '../components/Layout';
+import MainLayout from '../components/MainLayout';
 
 const HomePage = () => {
     return (
-        <Layout>
+        <MainLayout>
             Signup
-        </Layout>
+        </MainLayout>
     );
 };
 
