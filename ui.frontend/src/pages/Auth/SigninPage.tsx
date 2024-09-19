@@ -5,9 +5,19 @@ import Logo from '../../assets/images/favicon.png';
 import { Flex, Box, Checkbox, Stack, Heading, Text, Image, Divider } from '@chakra-ui/react';
 
 import { useNavigate } from '../../hooks/useNavigate';
+import { useState } from 'react';
 
 const SigninPage = () => {
+  const [test, setTest] = useState('');
   const { goToPage } = useNavigate();
+
+  const handleInputChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
+    setTest(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    alert(test);
+  }
 
   return (
     <AuthLayout>
@@ -21,7 +31,7 @@ const SigninPage = () => {
           <Box bg={'white'}>
             <Stack spacing={4}>
               {/* Forms */}
-              <Input label="Email address" type="email" />
+              <Input value={test} onChange={handleInputChange} label="Email address" type="email" />
               <Input label="Password" type="password" />
 
               {/* Bottom */}
@@ -33,7 +43,7 @@ const SigninPage = () => {
                 </Stack>
 
                 {/* Submit */}
-                <Button title="Login" variant="primary" />
+                <Button title="Login" variant="primary" onClick={() => handleSubmit()} />
               </Stack>
 
               <Stack spacing={2}>
