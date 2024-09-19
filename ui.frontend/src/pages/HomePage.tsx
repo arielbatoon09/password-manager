@@ -1,34 +1,36 @@
-import MainLayout from '../components/MainLayout';
+import MainLayout from '../components/layout/MainLayout';
 import { useNavigate } from '../hooks/useNavigate';
-import Button from '../components/Button';
+import Button from '../components/common/Button';
 
 import { Container, Stack, Box, Heading, Text, Icon, createIcon } from '@chakra-ui/react';
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const { goToPage } = useNavigate();
 
   return (
     <MainLayout>
       <Container maxW={'3xl'}>
-        <Stack as={Box} textAlign={'center'} justifyContent="center" alignItems="center" h="70vh" gap={10}>
-          <Heading color={'gray.600'} fontWeight={800} fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }} lineHeight={'110%'}>MANAGE YOUR
+        <Stack as={Box} textAlign={'center'} justifyContent="center" alignItems="center" h="70vh" gap={8}>
+          <Heading color={'gray.600'} fontWeight={800} fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }} lineHeight={'110%'}>MANAGE YOUR
             <br />
             <Text as={'span'} color={'red.400'}>PASSWORDS</Text><span> HERE!</span>
           </Heading>
 
           <Text color={'gray.500'}>
-            No need to remember countless passwords—just one. Our app keeps your data safe with end-to-end encryption, 
-            meaning only you have access. Plus, there's no admin panel, so your information stays 100% private, 
+            No need to remember countless passwords—just one. Our app keeps your data safe with end-to-end encryption,
+            meaning only you have access. Plus, there's no admin panel, so your information stays 100% private,
             secured by your own secret key.
           </Text>
 
           {/* CTA & Floating Arrow Icon */}
           <Stack direction={'column'} align={'center'} alignSelf={'center'} position={'relative'}>
             <Button title="Get Started For Free" variant="secondary" rounded={999} onClick={() => goToPage('/signup')} />
-            <Icon as={Arrow} color={'red.400'} w={71} position={'absolute'} right={-71} top={'10px'} />
-            <Text fontSize={'lg'} fontFamily={'Caveat'} position={'absolute'} right={'-125px'} top={'-15px'} transform={'rotate(10deg)'} color={'red.400'}>
-              100% For Free
-            </Text>
+            <Box display={{ base: 'none', sm: 'block' }}>
+              <Icon as={Arrow} color={'red.400'} w={71} position={'absolute'} right={-71} top={'10px'} />
+              <Text fontSize={'lg'} fontFamily={'Caveat'} position={'absolute'} right={'-125px'} top={'-15px'} transform={'rotate(10deg)'} color={'red.400'}>
+                100% For Free
+              </Text>
+            </Box>
           </Stack>
         </Stack>
       </Container>
