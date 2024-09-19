@@ -19,7 +19,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <FormControl isInvalid={error}>
       <FormLabel color={'gray.600'} fontWeight={'medium'} fontSize={'md'}>{label}</FormLabel>
-      <ChakraInput py={6} type={type} _focusVisible={{ bg: 'red.50', borderColor: 'red.400' }} borderColor={error ? 'red.700' : undefined} {...props} />
+      <ChakraInput py={4} type={type} _focusVisible={{ bg: 'red.50', borderColor: 'red.400' }} borderColor={error ? 'red.700' : undefined} {...props} />
       {error && errorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
     </FormControl>
   );
